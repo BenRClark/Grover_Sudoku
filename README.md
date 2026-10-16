@@ -1,0 +1,5 @@
+This project finds a solution to a sudoku using Grover's algorithm. THe process is went over in some detail in the jupyter notebook in the notebooks folder. It only works for sudoku board that are 4x4, 9x9, or 16x16 although 16x16 has not been tested. The code to run a 4x4 and 9x9 board is in the test folder. The amount of qubits needed to make any calculation is n\*E+E+p+1 where n is the square root of the board size, E is the number of empty values and p is the number of forbidden pairs (two empty values that "see" each other on the sudoku board). The required gate depth to solve a problem is a little complicated, but the oracle requires: 2\*E multicontrol-x gates, 2\*p\*n control x gates + p\*n multicontrol x gates. Therefore, the gate depth in general will scale with iterations and empty values and empty pairs. 
+
+The max qubit value quskit allwos is 29, so only sudoku with few emtpy cells are tractable. Additionally, there is test code for when there are multiple solutions and when there are no solutions. 
+
+
